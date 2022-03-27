@@ -1,7 +1,7 @@
 # Ceres 🌊
 
 <div align="center">
-<img src="./media/banner_.png">
+<img src="https://cdn.discordapp.com/attachments/916342232993370182/957569646037458964/Banner_.png">
   <br> <br>
 
 [![Release](https://img.shields.io/badge/Release-0.1-yellow.svg?style=for-the-badge&logo=Github)](https://heroku.com)
@@ -30,13 +30,14 @@
 [![glitch](https://img.shields.io/badge/Remix%20on-Glitch-white?logo=glitch&style=for-the-badge)](https://glitch.com/edit/#!/import/github/gamingboots/Ceres)
 [![vscode](https://img.shields.io/badge/Edit%20on-vscode-blue?logo=visual-studio-code&style=for-the-badge)](https://code.visualstudio.com/)
 [![sublime_text](https://img.shields.io/badge/Edit%20on-Sublime%20text-orange?logo=sublime-text&style=for-the-badge)](https://www.sublimetext.com/)
+</div>
 <hr><br>
 <h3>Tools</h3>
 
 > - ![Python](https://img.shields.io/badge/-Python-05122A?style=for-the-badge&logo=python)&nbsp;
 > - ![vscode](https://img.shields.io/badge/-vscode-05122A?logo=visual-studio-code&style=for-the-badge)&nbsp;
 > - ![Pycord](https://img.shields.io/badge/-Pycord-05122A?style=for-the-badge&logo=python)&nbsp;
-</div>
+
 <hr>
 <br>
 
