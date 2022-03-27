@@ -1,7 +1,7 @@
 # Ceres 🌊
 
 <div align="center">
-<img src="https://cdn.discordapp.com/attachments/916342232993370182/957569646037458964/Banner_.png">
+<img src="Banner_.png">
   <br> <br>
 
 [![Release](https://img.shields.io/badge/Release-0.1-yellow.svg?style=for-the-badge&logo=Github)](https://heroku.com)
