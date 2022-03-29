@@ -5,7 +5,7 @@
   <br> <br>
 
 [![Release](https://img.shields.io/badge/Release-0.1-yellow.svg?style=for-the-badge&logo=Github)](https://heroku.com)
-[![Python](https://img.shields.io/badge/Made%20With-Python%203.8-blue.svg?style=for-the-badge&logo=Python)](https://heroku.com)
+[![Python](https://img.shields.io/badge/Made%20With-Python%203.8-blue.svg?style=for-the-badge&logo=Python)](https://python.org
 [![Github_forks](https://img.shields.io/github/forks/gamingboots/Ceres?logo=github&style=for-the-badge)](https://github.com/gamingboots/Ceres)
 [![Github_License](https://img.shields.io/badge/License-Mozilla%20Public%20License%202.0-brightgreen?style=for-the-badge&logo=github)](https://gamingboots/Ceres)
 [![Github_last_commit](https://img.shields.io/github/last-commit/gamingboots/Hello-World?logo=Github&style=for-the-badge)](https://github.com/gamingboots/Ceres)
