@@ -24,7 +24,7 @@ class Api_cmds(commands.Cog):
 
 #lyrics command
 
-    @slash_command(name="lyrics",description="gets the lyrics of the mentioned song",guild_ids=[883180896038027336,903168731885240350]) # adding aliases to the command so they they can be triggered with other names
+    @slash_command(name="lyrics",description="gets the lyrics of the mentioned song") # adding aliases to the command so they they can be triggered with other names
     async def lyrics(self,ctx, *, search = None):
         await ctx.defer()
         if not search:
@@ -67,7 +67,7 @@ class Api_cmds(commands.Cog):
     
 #meme cmd
 
-    @slash_command(name="meme",description="gets a random meme",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="meme",description="gets a random meme")
     async def meme(self,ctx):
         await ctx.defer()
         async with aiohttp.ClientSession() as cs:
@@ -129,7 +129,7 @@ class Api_cmds(commands.Cog):
 
 #duck cmd
 
-    @slash_command(name="duck",description="sends a random duck",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="duck",description="sends a random duck")
     async def duck(self,ctx):
         await ctx.defer()
         duck_json=json.loads(requests.get("https://random-d.uk/api/v1/random").text)
@@ -140,7 +140,7 @@ class Api_cmds(commands.Cog):
 
 #coffee cmd
 
-    @slash_command(name="coffee",description="sends a random coffee",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="coffee",description="sends a random coffee")
     async def coffee(self,ctx):
         await ctx.defer()
         async with aiohttp.ClientSession() as cs:
@@ -292,7 +292,7 @@ class Api_cmds(commands.Cog):
 
 #cat command
 
-    @slash_command(name="cat",description="get a random cute kitty catty picture",guild_ids=[883180896038027336,903168731885240350])     
+    @slash_command(name="cat",description="get a random cute kitty catty picture")     
     async def cat(self,ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("http://aws.random.cat/meow") as r:
@@ -307,7 +307,7 @@ class Api_cmds(commands.Cog):
 
 #dog command
 
-    @slash_command(name="dog",description="get a random loyal cute dogo picture",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="dog",description="get a random loyal cute dogo picture")
     async def dog(self,ctx):
         await ctx.defer()
         async with aiohttp.ClientSession() as cs:

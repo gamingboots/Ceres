@@ -1,51 +1,46 @@
-import re
-import discord
-from discord.ext import commands
-from discord.commands import Option,SlashCommandGroup,slash_command
-from datetime import datetime
-import collections
-from io import BytesIO
-import asyncio
-import utils.buttons as buttons
-import random
-import config
-import aiohttp
-class Utility(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
+import discord                                                      #_
+from discord.ext import commands                                    # |
+from discord.commands import Option,SlashCommandGroup,slash_command # |
+from datetime import datetime                                       # |
+import collections                                                  # |
+from io import BytesIO                                              # |IMPORTS
+import asyncio                                                      # |
+import utils.buttons as buttons                                     # |
+import random                                                       # |
+import config                                                       # |
+import aiohttp                                                      #_
 
 
-
-    @commands.Cog.listener()
-    async def on_ready(self):
-        print("utility cog loaded")
+class Utility(commands.Cog):#Making the class
+    def __init__(self, bot):#setup
+        self.bot = bot      
 
 #avatar cmd
 
     @slash_command(guild_ids=[883180896038027336,903168731885240350])
-    async def avatar(self, ctx, user: Option(discord.Member, "Choose a Member", required=False)):
-        """Gets the avatar of a User"""
-        if not user:
-            user = ctx.author
+    async def avatar(self, ctx, user: Option(discord.Member, "Choose a Member", required=False)):#Making the function
+        """Gets the avatar of a User"""#small description
+        if not user:#checking if the author provided user or not
+            user = ctx.author#if the author dint provide any user then the user will be author themself
         embed = discord.Embed(
             title=f"`{user.name}`'s avatar", color=ctx.author.color)
         embed.description = f'[PNG]({user.display_avatar.with_format("png")}) | [JPEG]({user.display_avatar.with_format("jpeg")}) | [WEBP]({user.display_avatar.with_format("webp")})'
         embed.set_image(url=str(user.display_avatar.with_static_format("png")))
         embed.set_footer(
-            text=f"Requested by {ctx.author}",  icon_url=ctx.author.avatar.url)
-        if user.avatar.is_animated():
-            embed.description += f' | [GIF]({user.display_avatar.with_static_format("gif")})'
-            embed.set_image(url=str(user.display_avatar.with_static_format("gif")))
+            text=f"Requested by {ctx.author}",  icon_url=ctx.author.avatar.url)#making a fancy looking embed with links of the avatar
+        if user.avatar.is_animated():#checking if the avatar is animated
+            embed.description += f' | [GIF]({user.display_avatar.with_static_format("gif")})'#if the avatar is animated we will add [GIF] a link with gif format too
+            embed.set_image(url=str(user.display_avatar.with_static_format("gif")))#setting the avatar as the embed's image in gif format(it will be animated)
 
-        await ctx.respond(embed=embed)
+        await ctx.respond(embed=embed)#replying with the avatar
 
 #nick command
         
-    @slash_command(name="nick",description="Change the nick of the mentioned user",guild_ids=[883180896038027336,903168731885240350])
-    @commands.has_permissions(manage_nicknames=True)
-    async def nick(self,ctx, member: Option(discord.Member,"Select the member",required=True), *, nick:Option(str,"The name",required=True)):
+    @slash_command(name="nick",description="Change the nick of the mentioned user")
+    @commands.has_permissions(manage_nicknames=True)#mentioning the permissions required to use this command
+    async def nick(self,ctx, member: Option(discord.Member,"Select the member",required=True), *, nick:Option(str,"The name",required=True)):#Making the function
         try:
-            if ctx.guild.me.top_role < member.top_role:
+            if ctx.guild.me.top_role < member.top_role:#checking if the
                 return await ctx.respond(f"**<:ceres_failure:951863495559872613> This member has a greater role than me so i cant change their name!**")
             if ctx.author.top_role <= member.top_role:
                 return await ctx.respond(f"**<:ceres_failure:951863495559872613> You can't change nick of that person**")
@@ -58,7 +53,7 @@ class Utility(commands.Cog):
 
 #lock channel
 
-    @slash_command(name="lock",description="locks the current channel",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="lock",description="locks the current channel")
     @commands.has_permissions(manage_channels=True)
     async def lock(self,ctx):
         overwrite = ctx.channel.overwrites_for(ctx.guild.default_role)
@@ -73,7 +68,7 @@ class Utility(commands.Cog):
         
 #unlock channel
 
-    @slash_command(name="unlock",description="unlocks the current channel",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="unlock",description="unlocks the current channel")
     @commands.has_permissions(manage_channels=True)
     async def unlock(self,ctx):
         overwrite = ctx.channel.overwrites_for(ctx.guild.default_role)
@@ -197,7 +192,7 @@ class Utility(commands.Cog):
 
 #member count cmd
 
-    @slash_command(name="membercount",description="displays the number of cool people in the server",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="membercount",description="displays the number of cool people in the server")
     async def membercount(self,ctx):
         embed=discord.Embed(title="Number of cool people in this world" ,description=f"{ctx.guild.member_count}",color=ctx.author.color,timestamp=datetime.utcnow())
         await ctx.respond(embed=embed)
@@ -407,5 +402,6 @@ class Utility(commands.Cog):
         except commands.MissingPermissions:
             await ctx.respond(f"**<:ceres_failure:951863495559872613> You need `Manage emojis` permission to be able to use this command!**")
 
-def setup(bot):
-    bot.add_cog(Utility(bot))
+def setup(bot):#cog setup
+    bot.add_cog(Utility(bot))#adding the cog
+    print("Utility cog is Loaded\n------")#printing when the cog gets loaded.

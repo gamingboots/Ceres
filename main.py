@@ -37,7 +37,7 @@ async def on_ready():
     bot.dbcursor.execute('CREATE TABLE IF NOT EXISTS tickets (guild_id INTEGER, channel_id INTEGER, opener INTEGER, switch TEXT)')
     bot.db.commit()
 
-@bot.slash_command(name="help",guild_ids=[883180896038027336,903168731885240350])
+@bot.slash_command(name="help")
 async def help_(ctx):
     """returns a list of commands in the bot"""
     await ctx.respond(embed=em,view=helpselect())

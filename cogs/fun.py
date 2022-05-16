@@ -29,7 +29,7 @@ class Fun(commands.Cog):
 
 #sad commands
 
-    @slash_command(name="sad",description="express your sadness",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="sad",description="express your sadness")
     async def sad(self,ctx):
         sad_gifs=["https://cdn.discordapp.com/attachments/918722247026434048/922767301693046835/baa50bb8d7556f7ca2e68c0576584dd4.gif",
                 "https://cdn.discordapp.com/attachments/918722247026434048/922767300422172682/sad-aesthetic.gif",
@@ -67,7 +67,7 @@ class Fun(commands.Cog):
 
 #animestatus command
 
-    @slash_command(name="anime",description="search an anime",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="anime",description="search an anime")
     async def animestatus(self,ctx,*,query: Option(str,"Anime Name To get Information",required=True)):
         await ctx.defer()
         try:
@@ -89,7 +89,7 @@ class Fun(commands.Cog):
 
 #anime character command
 
-    @slash_command(name="character",description="search an anime character",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="character",description="search an anime character")
     async def animecharacter(self,ctx,*,query: Option(str,"characters name to get information",required=True)):
         await ctx.defer()
         try:
@@ -106,7 +106,7 @@ class Fun(commands.Cog):
 
 #sus command
 
-    @slash_command(name="sus",description="sus",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="sus",description="sus")
     async def sus(self,ctx):
         suss = ["https://tenor.com/view/sus-gif-22065664",
        "https://cdn.discordapp.com/attachments/918722247026434048/920167249912946698/giphy.gif",
@@ -126,7 +126,7 @@ class Fun(commands.Cog):
 
 #happy command
 
-    @slash_command(name="happy",description="give it a smile bro",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="happy",description="give it a smile bro")
     async def sus(self,ctx):
         anime_smiles = ["https://cdn.discordapp.com/attachments/918722247026434048/920188623071109140/anime-smile.gif",
     "https://cdn.discordapp.com/attachments/918722247026434048/920188622693625876/idolmaster-makoto.gif",
@@ -147,7 +147,7 @@ class Fun(commands.Cog):
 
 #8ball command
 
-    @slash_command(name="8ball",description="get a magical answer to your questions.",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="8ball",description="get a magical answer to your questions.")
     async def eightball(self,ctx,*,question : Option(str,"Write your question",required=True)):
         ball_answers=['It is certain.',
                         'It is decidedly so.',
@@ -182,7 +182,7 @@ class Fun(commands.Cog):
 
 #coinflip command
 
-    @slash_command(name="coinflip",description="Not able to make a decision? lets flips a coin",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="coinflip",description="Not able to make a decision? lets flips a coin")
     async def coinflip(self,ctx):
         value=[f"<:heads:918026458960625714>",f"<:tails:918026497363705907>"]
         await ctx.respond(f"**coin fliping <a:CoinFlipping:923809410973855774> **")
@@ -196,14 +196,14 @@ class Fun(commands.Cog):
 
 #random number generator
 
-    @slash_command(name="randomnumgen",description="Generates a random number!",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="randomnumgen",description="Generates a random number!")
     async def randomnumgen(self,ctx):
         e=discord.Embed(title="Random Numer generated!!",description=random.randint(1,1000),color=ctx.author.color)
         await ctx.respond(embed=e)
 
 #PING
 
-    @slash_command(name="ping",description="sends the speed to the bot",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(name="ping",description="sends the speed to the bot")
     async def ping(self, ctx):
         await ctx.respond(f"**Latency: {round(self.bot.latency * 1000)} ms**")
 
@@ -324,19 +324,6 @@ class Fun(commands.Cog):
         except Exception as e:
             await ctx.send(e)
 
-    @slash_command(
-        name='calculator',
-        description="sends a calculator working calculator in discord!",guild_ids=[883180896038027336,903168731885240350])
-    async def calculator(self, ctx):
-        mbed = discord.Embed(
-            title='Calculator',
-            description=f'Use the buttons below to write expressions and the calculator will calculate them for you!``` 0```',
-            color=discord.Color.embed_background()
-        ).set_thumbnail(url=config.icon)
-        mbed.set_footer(icon_url=ctx.author.display_avatar.url,text=f'Requested by {ctx.author.name}')
-        await ctx.respond(embed=mbed)
-        msg = await ctx.interaction.original_message()
-        await msg.edit(view=utils.buttons.Calculator(msg,ctx))
 
     @slash_command(description="Play a TicTacToe Game with Someone on discord!",guild_ids=[883180896038027336])
     async def tictactoe(self, ctx: discord.ApplicationContext, user: Option(discord.Member, "The user you want to play tic-tac-toe with", default=None, required=True)):
@@ -366,7 +353,7 @@ class Fun(commands.Cog):
 
 
     #Qrcode
-    @slash_command(description="Generates a Qrcode!",guild_ids=[883180896038027336,903168731885240350])
+    @slash_command(description="Generates a Qrcode!")
     async def qrcode(self, ctx, url: Option(str, "The link you want the qrcode of", required=True, default=None), hidden: Option(str, "Do you want the qrcode to be visible only to you?", choices=["Yes", "No"], required=False, default=None)):
         img = qrcode.make(url)
         img.save("qrcode.png")
